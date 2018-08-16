@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="top_wrap">
+                <div class="logo_wrap">
+                    <img src="images/logo1.png">
+                </div>
+                <ul class="menu_li">
+                    <li class="active"><a href="#">主页<br><span>Home</span></a></li>  
+                    <li><a href="javascript:;" onclick="order2()">订单<br><span>order</span></a></li>          
+				    <li>
+				    <a href="javascript:;" onclick="toZhuCe()">注册<br><span>Register</span></a>
+				    </li>
+				    <li>
+				    <a href="javascript:;" onclick="toUserLogin()">登录<br><span>Login</span></a>
+				    </li>
+				    <li th:each="cookie:${#httpServletRequest.getCookies()}" th:if="${cookie.getName() eq 'user'}">
+				    <a href="javascript:;" onclick="logout()">退出<br><span th:text="${cookie.getValue()}"></span></a>
+				    </li>
+				    
+				    
+                </ul>
+                <div class="menu_catalog" id="show_list_btn">
+                    <i></i>
+                </div>
+            </div>
+        </nav>
+        <div id="top_img" class="carousel slide ">
+            <!-- 轮播点 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0"
+                    class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- 轮播图 -->
+            <div class="banner_con">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="img_wrap">
+                            <p>世间万物,唯有美食与爱不可辜负</p>
+                            <div class="img_border">
+                                <img src="images/pic2.jpg">
+                            </div>
+                            <div class="img_border">
+                                <img src="images/pic7.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img_wrap">
+                            <p>世间万物,唯有美食与爱不可辜负</p>
+                            <div class="img_border">
+                                <img src="images/pic2.jpg">
+                            </div>
+                            <div class="img_border">
+                                <img src="images/pic7.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img_wrap">
+                            <p>有时候，一点微不足道的肯定，对我却意义非凡。</p>
+                            <div class="img_border">
+                                <img src="images/pic2.jpg">
+                            </div>
+                            <div class="img_border">
+                                <img src="images/pic7.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main_wrap1">
+
+            <div class="welcome">
+                <h2>欢迎来到"坑你一点订餐系统"</h2>
+            </div>
+        </div>
+        <div class="main_wrap2">
+            <div class="pro_show">
+                <div class="pro_con">
+                    <div class="pro_con_left" style="background-image: url('images/chh.jpg')">
+                    </div>
+                    <div class="pro_con_right">
+                    <li th:each="seller:${slist}">
+                    <input type="hidden" id="sid" name="sid" th:value="1">
+			        <td th:text="${seller.sname}"></td></li>
+                        <table>
+                            <tr>
+                                <td>商家简介：</td>
+                                <td>晨花花是一家纯手工蛋糕制作品牌，专门经营各种慕斯蛋糕，巧克力蛋糕等，
+                                致力于将健康美味时尚的经营理念带给每一位消费者</td>
+                            </tr>
+                        </table>
+                        <button class="btn btn-green">查看更多</button>
+                    </div>
+                </div>
+
+                <div class="pro_con">
+                    <div class="pro_con_left right" style="background-image: url('images/im4.jpg')">
+                    </div>
+                    <div class="pro_con_right">
+                        <p>很高兴遇见你</p>
+                        <table>
+                            <tr>
+                                <td>商家简介：</td>
+                                <td>爱是一种遇见,却无法预见，来很高兴遇见你，遇见爱</td>
+                            </tr>
+                        </table>
+                        <button class="btn btn-green">查看更多</button>
+                    </div>
+                    
+                </div>
+
+                <div class="pro_con">
+                    <div class="pro_con_left" style="background-image: url('images/im3.jpg')">
+                    </div>
+                    <div class="pro_con_right">
+                        <p>king cookie</p>
+                        <table>
+                            <tr>
+                                <td>商家简介：</td>
+                                <td>king cookie，专营港式甜品，在北京拥有10家分店，哈尔滨1家分店主要针对年轻消费群体，年龄在25-35岁之间的客户群体，主要产品有：港式甜品、广式甜品、广式快餐、精美饮品等20多类休闲食品。</td>
+                            </tr>
+                        </table>
+                        <button class="btn btn-green">查看更多</button>
+                    </div>
+                </div>
+                <div class="pro_con">
+                    <div class="pro_con_left right" style="background-image: url('images/timg.jpg')">
+                    </div>
+                    <div class="pro_con_right">
+                        <p>上花坊</p>
+                        <table>
+                            <tr>
+                                <td>商家简介：</td>
+                                <td>我们是一家十年品牌老店，专营港式甜品，在北京拥有10家分店，哈尔滨1家分店主要针对年轻消费群体，年龄在25-35岁之间的客户群体，主要产品有：港式甜品、广式甜品、广式快餐、精美饮品等20多类休闲食品。</td>
+                            </tr>
+                        </table>
+                        <button class="btn btn-green">查看更多</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="parent">
+        <div>
+            <div></div>
+        </div>
+        <ul></ul>
+        <a></a>
+        <div></div>
+    </div>
+</body>
+<script>
+    function toZhuCe(){
+    	window.location.href="toZhuCe";
+    }
+    function toUserLogin(){
+    	window.location.href="toUserLogin";
+    }
+    function toOrderDetail(){
+    	window.location.href="toOrderDetail";
+    }
+    function logout(){
+    	window.location.href="logout";
+    }
+    function order2(){
+       	window.location.href="order2";
+       }
+</script>
+<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" rel="script" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" rel="script" src="js/main.js"></script>
+
+</html>

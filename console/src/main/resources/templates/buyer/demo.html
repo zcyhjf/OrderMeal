@@ -1,0 +1,350 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<title>无标题文档</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="header">
+	<div class="content-wrapper">
+		<div class="avatar">
+			<img width="64" height="64" src="images/chh.jpg">
+		</div>
+		<div class="content">
+			<div class="title">
+				<span class="brand"></span>
+				<span class="name">晨花花蛋糕店</span>
+			</div>
+			<div class="description">
+				蜂鸟专送/38分钟送达
+			</div>
+			<div class="support">
+				<span class="icon decrease"></span>
+				<span class="text">在线支付满28减5</span>
+			</div>
+		</div>
+	</div>
+	<div class="bulletin-wrapper">
+		<span class="bulletin-title"></span><span class="bulletin-text">晨花花是一家纯手工蛋糕制作品牌，由五个程序员创建，专门经营各种慕斯蛋糕，巧克力蛋糕等， 致力于将健康美味时尚的经营理念带给每一位消费者。</span>
+		<i class="icon-keyboard_arrow_right"></i>
+	</div>
+	<div class="background">
+		<img width="100%" height="100%" src="images/bg2.jpg">
+	</div>
+	<div class="detail fade-transition" style="display: none;">
+		<div class="detail-wrapper clearfix">
+			<div class="detail-main">
+				<h1 class="name">晨花花蛋糕店</h1>
+				<input type="hidden" id="sid" name="sid" value="1">
+				<div class="star-wrapper">
+					<div class="star star-48">
+						<span class="star-item on"></span><span class="star-item on"></span><span class="star-item on"></span><span class="star-item on"></span><span class="star-item off"></span>
+					</div>
+				</div>
+				<div class="title">
+					<div class="line"></div>
+					<div class="text">优惠信息</div>
+					<div class="line"></div>
+				</div>
+				<ul class="supports">
+					<li class="support-item">
+						<span class="icon decrease"></span>
+						<span class="text">在线支付满28减5</span>
+					</li><li class="support-item">
+					<span class="icon discount"></span>
+					<span class="text">VC无限橙果汁全场8折</span>
+				</li><li class="support-item">
+					<span class="icon special"></span>
+					<span class="text">单人精彩套餐</span>
+				</li><li class="support-item">
+					<span class="icon invoice"></span>
+					<span class="text">该商家支持发票,请下单写好发票抬头</span>
+				</li><li class="support-item">
+					<span class="icon guarantee"></span>
+					<span class="text">已加入“外卖保”计划,食品安全保障</span>
+				</li>
+				</ul>
+				<div class="title">
+					<div class="line"></div>
+					<div class="text">商家公告</div>
+					<div class="line"></div>
+				</div>
+				<div class="bulletin">
+					<p class="content">晨花花是一家纯手工蛋糕制作品牌，专门经营各种慕斯蛋糕，巧克力蛋糕等， 致力于将健康美味时尚的经营理念带给每一位消费者</p>
+				</div>
+			</div>
+		</div>
+		<div class="detail-close">
+			<i class="icon-close"></i>
+		</div>
+	</div>
+</div>
+<div class="main">
+	<div class="left-menu"  id="left">
+		<ul>
+			<li th:each="category:${fclist}">
+			<span th:text="${category.cname}" class='uu'></span>
+			<input type="hidden" name="id" value="${category.ctype}"></input>
+			</li>
+		</ul>
+	</div>
+	<div class="con">
+	
+		<div class="right-con con-active" style="display: none;">
+			<ul th:each="c1:${c1Product }">
+				<li>
+					<div class="menu-img"><img th:src="${c1.pimg }" width="55" height="55"></div>
+					<div class="menu-txt">
+						<h4 data-icon="00" th:text="${c1.pname }"></h4>
+						<p class="list1" th:text="${c1.cname }"></p>
+						<p class="list2">
+							<b>￥</b><b th:text="${c1.pprice }"></b><br>
+						</p><div class="btn">
+						<button class="minus">
+							<strong></strong>
+						</button>
+						<i>0</i>
+						<button class="add">
+							<strong></strong>
+						</button>
+						<i class="price" th:text="${c1.pprice }"></i>
+					</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="right-con con-active" style="display: none;">
+			<ul th:each="c2:${c2Product }">
+				<li>
+					<div class="menu-img"><img th:src="${c2.pimg }" width="55" height="55"></div>
+					<div class="menu-txt">
+						<h4 data-icon="00" th:text="${c2.pname }"></h4>
+						<p class="list1" th:text="${c2.cname }"></p>
+						<p class="list2">
+							<b>￥</b><b th:text="${c2.pprice }"></b><br>
+						</p><div class="btn">
+						<button class="minus">
+							<strong></strong>
+						</button>
+						<i>0</i>
+						<button class="add">
+							<strong></strong>
+						</button>
+						<i class="price" th:text="${c2.pprice }"></i>
+					</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="right-con con-active" style="display: none;">
+			<ul th:each="c3:${c3Product }">
+				<li>
+					<div class="menu-img"><img th:src="${c3.pimg }" width="55" height="55"></div>
+					<div class="menu-txt">
+						<h4 data-icon="00" th:text="${c3.pname }"></h4>
+						<p class="list1" th:text="${c3.cname }"></p>
+						<p class="list2">
+							<b>￥</b><b th:text="${c3.pprice }"></b><br>
+						</p><div class="btn">
+						<button class="minus">
+							<strong></strong>
+						</button>
+						<i>0</i>
+						<button class="add">
+							<strong></strong>
+						</button>
+						<i class="price" th:text="${c3.pprice }"></i>
+					</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="right-con con-active" style="display: none;">
+			<ul th:each="c4:${c4Product }">
+				<li>
+					<div class="menu-img"><img th:src="${c4.pimg }" width="55" height="55"></div>
+					<div class="menu-txt">
+						<h4 data-icon="00" th:text="${c4.pname }"></h4>
+						<p class="list1" th:text="${c4.cname }"></p>
+						<p class="list2">
+							<b>￥</b><b th:text="${c4.pprice }"></b><br>
+						</p><div class="btn">
+						<button class="minus">
+							<strong></strong>
+						</button>
+						<i>0</i>
+						<button class="add">
+							<strong></strong>
+						</button>
+						<i class="price" th:text="${c4.pprice }"></i>
+					</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="right-con con-active" style="display: none;">
+			<ul th:each="c5:${c5Product }">
+				<li>
+					<div class="menu-img"><img th:src="${c5.pimg }" width="55" height="55"></div>
+					<div class="menu-txt">
+						<h4 data-icon="00" th:text="${c5.pname }"></h4>
+						<p class="list1" th:text="${c5.cname }"></p>
+						<p class="list2">
+							<b>￥</b><b th:text="${c5.pprice }"></b><br>
+						</p><div class="btn">
+						<button class="minus">
+							<strong></strong>
+						</button>
+						<i>0</i>
+						<button class="add">
+							<strong></strong>
+						</button>
+						<i class="price" th:text="${c5.pprice }"></i>
+					</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="right-con con-active" style="display: none;">
+			<ul th:each="c6:${c6Product }">
+				<li>
+					<div class="menu-img"><img th:src="${c6.pimg }" width="55" height="55"></div>
+					<div class="menu-txt">
+						<h4 data-icon="00" th:text="${c6.pname }"></h4>
+						<p class="list1" th:text="${c6.cname }"></p>
+						<p class="list2">
+							<b>￥</b><b th:text="${c6.pprice }"></b><br>
+						</p><div class="btn">
+						<button class="minus">
+							<strong></strong>
+						</button>
+						<i>0</i>
+						<button class="add">
+							<strong></strong>
+						</button>
+						<i class="price" th:text="${c6.pprice }"></i>
+					</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<input type="hidden" id="productid" name="productid">
+		
+	</div>
+	<div class="up1"></div>
+	<div class="shopcart-list fold-transition" style="">
+		<div class="list-header">
+			<h1 class="title">购物车</h1>
+			<span class="empty">清空</span>
+		</div>
+		<div class="list-content">
+			<ul></ul>
+		</div>
+		<input type="hidden" id="zhi" value="0">
+	</div>
+	<div class="footer">  
+		<div class="left">已选：
+		<span id="cartN">
+			<span id="totalcountshow">0</span>份　总计：￥<span id="totalpriceshow">0</span></span>元  
+		</div>  
+		<div class="right">  
+			<a id="btnselect" class="xhlbtn  disable" onclick="toOrder()">去结算</a>
+		</div>   
+	</div>
+</div>
+<div class="subFly">
+	<div class="up"></div>
+	<div class="down">
+		<a class="close" href="javascript:">
+			<img src="img/close.png" alt="">
+		</a>
+		<dl class="subName">
+			<dt>
+				<img class="imgPhoto" src="img/pic.png" alt="">
+			</dt>
+			<dd>
+				<p data-icon="" class="productName"></p>
+				<p><span>¥ </span><span class="pce" style="font-size: 16px;font-weight: bold"></span></p>
+				<p>
+					<span>已选：“</span>
+					<span class="choseValue"></span>
+					<span>”</span>
+				</p>
+			</dd>
+		</dl>
+	
+		<dl class="subChose">
+			<dt>规格</dt>
+			<div class="test">
+				<dd class="m-active" onclick="changePrice('大')">大</dd>
+				<dd  onclick="changePrice('中')">中</dd>
+				<dd  onclick="changePrice('小')">小</dd>
+			</div>
+		</dl>
+		<script type="text/javascript">
+		    function changePrice(size){
+		    	 $.ajax({
+		    		 type:"post",
+		    		 url:"changePrice?pid="+$('#productid').val()+"&size="+size, 
+		    		 dataType:"json",
+		    		 success:function(data){
+		    		     $('.pce').html(data);
+		    		 }
+		    	 })
+		     }
+		    
+		    function findPidByProductName(name){
+		    	 $.ajax({
+		    		 type:"post",
+		    		 url:"findPidByProductName?name="+name,
+		    		 dataType:"json",
+		    		 success:function(data){
+		    		     $('#productid').attr('value',data);
+		    		     console.log("111111111111111132654186541685413");
+		    		     console.log($('#productid').val());
+		    		 }
+		    	 })
+		     }
+		    
+		</script>
+		<dl class="subCount">
+			<dt>购买数量</dt>
+			<dd>
+				<div class="btn">
+					<button class="ms" style="display: inline-block;">
+						<strong></strong>
+					</button>
+					<i style="display: inline-block;">1</i>
+					<button class="ad">
+						<strong></strong>
+					</button>
+					<i class="price" id="liprice">25</i>
+				</div>
+			</dd>
+		</dl>
+		<div class="foot">
+			<span>加入购物车</span>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/add.js"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+
+</body>
+</html>

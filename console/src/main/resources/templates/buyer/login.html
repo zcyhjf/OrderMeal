@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>联系我们</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/layout.css">
+</head>
+<body>
+	<header>
+		<nav>
+            <div class="top_wrap">
+                <div class="logo_wrap">
+                    <img src="images/logo1.png">
+                </div>
+                <ul class="menu_li">
+                    <li><a href="javascript:;" onclick="index1()">主页<br><span>Home</span></a></li>
+                    <li><a href="javascript:;" onclick="order2()">订单<br><span>order</span></a></li>          
+                    <li><a href="javascript:;" onclick="toZhuCe()">注册<br><span>Register</span></a></li>
+				    <li class="active"><a>登录<br><span>Login</span></a></li>
+				    
+                </ul>
+                <div class="menu_catalog" id="show_list_btn">
+                    <i></i>
+                </div>
+            </div>
+            <ul class="menu_list" id="con_list">
+                    <li><a href="index.html">主页<span>Home</span></a></li>
+                    <li><a href="workShow.html">作品展示<span>Works</span></a></li>
+                    <li><a href="teachingMethod.html">制皂记<span>Methods</span></a></li>
+                    <li class="cur"><a href="contactUs.html">联系我们<span>Contact</span></a></li>
+                </ul>     
+        </nav>
+       
+	</header>
+	<main>
+		<div class="contact_con">
+			<div class="contact_con_left">
+			<h3>坑你一点餐系统</h3>
+				您好！<br>感谢您选择我们，我们是一家创业公司，<br>若您有什么意见或建议，欢迎您给我留言，或者使用以下方式联系我们</p>
+				联系人：坑先生<br>
+				电话: +0 123 4567 8987<br>
+				邮箱: <a href="#">zhangruochen@example.com</a>
+				</p>
+			</div>
+			<div class="contact_con_right">
+				<form action="UserLogin" method="post">
+					<input type="text" placeholder="登陆名" name="uname" required="" >
+					<input type="password" placeholder="密码"  name="upwd" required="">
+					<button class="btn btn-green" type="submit">登陆</button>
+				</form>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</main>
+</body>
+<script>
+    function toZhuCe(){
+    	window.location.href="toZhuCe";
+    }
+    function toUserLogin(){
+    	window.location.href="toUserLogin";
+    }
+    function index1(){
+    	window.location.href="index1";
+    }
+    function order2(){
+       	window.location.href="order2";
+       }
+</script>
+<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" rel="script" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" rel="script" src="js/main.js"></script>
+</html>
